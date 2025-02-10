@@ -89,6 +89,10 @@
 // // Call loadCart on page load
 // window.onload = loadCart;
 
+//This code did not work. It would have worked if I did the solution I came up with below.
+//Basically the only change I did was that I stored the "original price" in its own variable when I'm adding it to the cart.
+//And then taking that variable to subtract the total price from when clicking the "remove" button...
+
 document.getElementById("cartIcon").addEventListener("click", function () {
   const cartPopup = document.getElementById("cartPopup");
   cartPopup.style.display =
