@@ -7,6 +7,12 @@
 :root {
   --primary-color: #22254b;
   --secondary-color: #373b69;
+  --menu-color: #7378c5;
+}
+
+li {
+  list-style-type: none;
+  padding-bottom: 1rem;
 }
 
 body {
@@ -17,7 +23,8 @@ body {
 header {
   padding: 1rem;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
   background-color: var(--secondary-color);
 }
 
@@ -37,10 +44,10 @@ header {
 }
 
 .search::placeholder {
-  color: #7378c5;
+  color: var(--menu-color);
 }
 
-main {
+#main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -102,4 +109,137 @@ main {
 
 .movie:hover .overview {
   transform: translateY(0);
+}
+
+.home-btn {
+  color: var(--menu-color);
+  background-color: var(--secondary-color);
+  text-decoration: none;
+  border: 2px solid var(--primary-color);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+}
+
+.home-btn:hover {
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+  text-decoration: none;
+  border: 2px solid var(--primary-color);
+}
+
+.specific_movie {
+  padding: 2rem 3rem;
+  display: flex;
+  justify-content: center;
+  color: #eee;
+  letter-spacing: 0.5px;
+}
+
+.movie-txt {
+  padding-top: 2rem;
+  padding-left: 2rem;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--secondary-color);
+}
+
+.spes-movie-info {
+  padding-bottom: 2rem;
+}
+
+.movie-img {
+  height: 100%;
+  width: 25rem;
+}
+
+.buy-now-div {
+  padding-top: 5rem;
+}
+
+.add-to-cart {
+  padding: 0.5rem 1rem;
+  color: var(--menu-color);
+  background-color: var(--secondary-color);
+  text-decoration: none;
+  border: 2px solid var(--primary-color);
+  border-radius: 50px;
+  font-size: 1.5rem;
+}
+
+.buy-now:hover {
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+  text-decoration: none;
+  border: 2px solid var(--primary-color);
+}
+
+.cart {
+  color: var(--menu-color);
+  font-size: 2rem;
+}
+
+.price {
+  padding-top: 2rem;
+}
+
+/***********************************************************************************/
+/***********************************************************************************/
+/*************************          CART           *********************************/
+/***********************************************************************************/
+/***********************************************************************************/
+
+.cart-popup {
+  display: none; /* Hidden by default */
+  position: fixed;
+  right: 0px;
+  width: 25rem;
+  height: 30rem;
+  border: 2px solid var(--primary-color);
+  border-radius: 0 0 0 50px;
+  border-top: none;
+  border-right: none;
+  background-color: var(--secondary-color);
+  box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.377);
+  padding: 20px;
+  z-index: 1000;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.cart_h2 {
+  color: #cecece;
+}
+
+.cart_btn {
+  color: var(--menu-color);
+  background-color: var(--secondary-color);
+  border: 2px solid var(--primary-color);
+  padding-inline: 1rem;
+  padding-block: 0.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cart_btn:hover {
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+  text-decoration: none;
+  border: 2px solid var(--primary-color);
+}
+
+.trash-btn {
+}
+
+#cartContent {
+  color: white;
+}
+
+.addcart,
+.removecart {
+  font-size: 1.5rem;
+  background-color: transparent;
+  border: none;
+  color: var(--menu-color);
+  padding-left: 1rem;
+  cursor: pointer;
 }

@@ -79,26 +79,44 @@ if (movieId) {
 
 function displayMovieDetails(movie) {
   const main = document.getElementById("main_movie"); // Assuming you have a main element to display the details
-  const { id, title, image, rating, description } = movie;
+  const { id, title, image, rating, description, price } = movie;
   const movieEl = document.createElement("div");
 
-  movieEl.classList.add("movie");
+  movieEl.classList.add("specific_movie");
   movieEl.innerHTML = `
       <img
+          class="movie-img"
           src="${image.url}"
           alt="${title}"
         />
 
-        <div class="movie-info">
-          <h3>${title}</h3>
-          <span class="${getColor(rating)}">${rating}</span>
-        </div>
+        <div class="movie-txt">
+          <div class="spes-movie-info">
+            <h3>${title}</h3>
+            <span class="${getColor(rating)}">${rating}</span>
+          </div>
 
-        <div class="overview">
-          <h3>Overview</h3>
-          ${description}
+          <div class="overview-movie">
+            <h3>Description</h3>
+            ${description}
+            <h4 class="price">Price</h4>
+            ${price}kr
+          </div>
+
+          <div class="buy-now-div">
+          <a href="#" class="add-to-cart" data-id="${id}" data-title="${title}" data-price="${price}">Add to cart!</a>
+          </div>
         </div>
     `;
+
+  const addToCartButton = movieEl.querySelector(".add-to-cart");
+  addToCartButton.addEventListener("click", (e) => {
+    e.stopPropagation(); // Prevent the click from triggering the movie detail page redirect
+    const productName = e.target.getAttribute("data-title");
+    const productPrice = parseFloat(e.target.getAttribute("data-price"));
+    addToCart(productName, productPrice);
+  });
+
   main.appendChild(movieEl);
 }
 

@@ -45,6 +45,7 @@ function showMovies(data) {
           ${description}
         </div>
 
+
     `;
 
     movieEl.addEventListener("click", () => {
