@@ -5,9 +5,12 @@
 }
 
 :root {
-  --primary-color: #22254b;
+  /* --primary-color: #22254b;
   --secondary-color: #373b69;
-  --menu-color: #7378c5;
+  --menu-color: #7378c5; */
+  --primary-color: #595959;
+  --secondary-color: #7f7f7f;
+  --menu-color: #0a0a0a;
 }
 
 li {
@@ -81,6 +84,7 @@ header {
   padding: 0.25rem 0.5rem;
   border-radius: 3px;
   font-weight: bold;
+  color: var(--menu-color);
 }
 
 .movie-info span.green {
@@ -97,6 +101,7 @@ header {
 
 .overview {
   position: absolute;
+  color: var(--menu-color);
   left: 0;
   right: 0;
   bottom: 0;
@@ -131,7 +136,7 @@ header {
   padding: 2rem 3rem;
   display: flex;
   justify-content: center;
-  color: #eee;
+  color: var(--menu-color);
   letter-spacing: 0.5px;
 }
 
@@ -207,7 +212,7 @@ header {
 }
 
 .cart_h2 {
-  color: #cecece;
+  color: var(--menu-color);
 }
 
 .cart_btn {
@@ -228,7 +233,7 @@ header {
 }
 
 #cartContent {
-  color: white;
+  color: var(--menu-color);
 }
 
 .addcart,
@@ -239,4 +244,57 @@ header {
   color: var(--menu-color);
   padding-left: 1rem;
   cursor: pointer;
+}
+
+/***********************************************************************************/
+/***********************************************************************************/
+/*************************        checkout         *********************************/
+/***********************************************************************************/
+/***********************************************************************************/
+
+.checkout-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1rem;
+}
+.checkout-header {
+  color: white;
+}
+
+.checkout-img {
+  height: 15rem;
+}
+
+.checkout-product-name {
+  color: white;
+}
+
+.checkout-quantity {
+  color: white;
+}
+
+.checkout-total-price {
+  color: white;
+}
+
+#totalPrice {
+  color: white;
+}
+
+.checkout-btn {
+  margin: 2rem 0 5rem 0;
+  color: var(--menu-color);
+  background-color: var(--secondary-color);
+  border: 2px solid var(--primary-color);
+  text-decoration: none;
+  padding: 0.3rem 1rem;
+  cursor: pointer;
+}
+
+.checkout-btn:hover {
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+  text-decoration: none;
+  border: 2px solid var(--secondary-color);
 }

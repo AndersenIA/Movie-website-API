@@ -105,7 +105,7 @@ document.getElementById("closeCart").addEventListener("click", function () {
 
 const cart = {};
 
-function addToCart(productName, productPrice) {
+function addToCart(productName, productPrice, productImage) {
   if (cart[productName]) {
     cart[productName].quantity += 1;
     cart[productName].totalPrice += cart[productName].originalPrice; // Add the original price
@@ -114,6 +114,7 @@ function addToCart(productName, productPrice) {
       quantity: 1,
       totalPrice: productPrice, // Total price for the first item
       originalPrice: productPrice, // Store the original price
+      imgSrc: productImage, // Store the image URL
     };
   }
   updateCartDisplay();
@@ -123,6 +124,7 @@ function addToCart(productName, productPrice) {
 function updateCartDisplay() {
   const cartList = document.getElementById("cartContent");
   cartList.innerHTML = "";
+  let grandTotal = 0; // Initialize grand total
   for (let product in cart) {
     const listItem = document.createElement("li");
     listItem.innerHTML = `
@@ -156,11 +158,23 @@ function updateCartDisplay() {
       saveCart(); // Save the updated cart to local storage
     });
 
+    //Making a total price element
+    const totalSum = document.createElement("h4");
+    totalSum.innerHTML = ``;
+
     // Append buttons to the list item
     listItem.appendChild(addButton);
     listItem.appendChild(removeButton);
     cartList.appendChild(listItem);
+
+    // Add to grand total
+    grandTotal += cart[product].totalPrice;
   }
+
+  // Display the grand total
+  const totalSum = document.createElement("h4");
+  totalSum.innerHTML = `Total Price of Cart: kr${grandTotal.toFixed(2)}`;
+  cartList.appendChild(totalSum); // Append the total sum to the cart content
 }
 
 function removeFromCart(productName) {
@@ -180,6 +194,8 @@ function loadCart() {
     updateCartDisplay();
   }
 }
+
+console.log(cart);
 
 // Call loadCart on page load
 window.onload = loadCart;
