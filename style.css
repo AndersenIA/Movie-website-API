@@ -287,6 +287,7 @@ header {
   color: var(--menu-color);
   background-color: var(--secondary-color);
   border: 2px solid var(--primary-color);
+  border-radius: 50px;
   text-decoration: none;
   padding: 0.3rem 1rem;
   cursor: pointer;
@@ -297,4 +298,48 @@ header {
   background-color: var(--primary-color);
   text-decoration: none;
   border: 2px solid var(--secondary-color);
+}
+
+.checkout-complete-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 20rem;
+  color: var(--menu-color);
+}
+
+/***********************************************************************************/
+/***********************************************************************************/
+/*************************         filter          *********************************/
+/***********************************************************************************/
+/***********************************************************************************/
+
+.filter-div {
+  padding: 1rem 5rem;
+}
+
+.search-label {
+  color: var(--menu-color);
+}
+
+.search-opt {
+  font-family: "Poppins", serif;
+}
+
+.filter-bar {
+  font-family: "Poppins", serif;
+  color: var(--menu-color);
+  background-color: var(--secondary-color);
+  appearance: none;
+  padding-inline: 1rem;
+  padding-block: 0.2rem;
+  border-radius: 50px;
+  border: 1px solid var(--menu-color);
+}
+
+.filter-bar:focus {
+  background-color: var(--primary-color);
+  color: var(--menu-color);
+  outline: none;
 }

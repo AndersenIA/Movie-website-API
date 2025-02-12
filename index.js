@@ -9,6 +9,10 @@ const main = document.getElementById("main");
 const form = document.getElementById("form");
 const search = document.getElementById("search");
 
+const filter = document.getElementById("filter"); // Reference to the filter dropdown
+
+let allMovies = []; // Store all movies for filtering
+
 getMovies(BASE_URL);
 
 function getMovies(url) {
@@ -16,7 +20,7 @@ function getMovies(url) {
     .then((res) => res.json())
     .then((data) => {
       console.log(data.data);
-
+      allMovies = data.data;
       showMovies(data.data);
     });
 }
@@ -25,7 +29,7 @@ function showMovies(data) {
   main.innerHTML = "";
 
   data.forEach((movie) => {
-    const { id, title, image, rating, description } = movie;
+    const { id, title, image, rating, description, genre } = movie;
     const movieEl = document.createElement("div");
 
     movieEl.classList.add("movie");
@@ -57,6 +61,34 @@ function showMovies(data) {
     main.appendChild(movieEl);
   });
 }
+
+function filterMovies(genre) {
+  console.log("Filter function called");
+  const selectedGenre = filter.value; // Get the selected genre from the dropdown
+  let filteredMovies;
+
+  if (selectedGenre === "default") {
+    // If the default option is selected, show all movies
+    filteredMovies = allMovies;
+  } else {
+    // Filter movies based on the selected genre
+    filteredMovies = allMovies.filter((movie) => movie.genre === selectedGenre);
+  }
+
+  showMovies(filteredMovies); // Show filtered movies
+}
+
+// Add event listener for the filter dropdown
+filter.addEventListener("change", filterMovies);
+
+// Add event listener for the search input
+search.addEventListener("input", function () {
+  const searchValue = search.value.toLowerCase(); // Get the search input value
+  const filteredMovies = allMovies.filter(
+    (movie) => movie.title.toLowerCase().includes(searchValue) // Filter movies by title
+  );
+  showMovies(filteredMovies); // Show filtered movies based on search
+});
 
 function getColor(vote) {
   if (vote >= 8) {
