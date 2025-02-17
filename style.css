@@ -343,3 +343,31 @@ header {
   color: var(--menu-color);
   outline: none;
 }
+
+/***********************************************************************************/
+/***********************************************************************************/
+/*************************         Loading          *********************************/
+/***********************************************************************************/
+/***********************************************************************************/
+
+#loading {
+  font-size: 24px;
+  text-align: center;
+  margin: 20px;
+}
+
+.dots {
+  display: inline-block;
+  animation: dots 1s steps(5, end) infinite;
+}
+
+#loading_movie {
+  font-size: 24px;
+  text-align: center;
+  margin: 20px;
+}
+
+.dots {
+  display: inline-block;
+  animation: dots 1s steps(5, end) infinite;
+}

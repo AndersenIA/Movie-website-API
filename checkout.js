@@ -35,4 +35,5 @@ function loadCheckout() {
 }
 
 // Call loadCheckout on page load
-window.onload = loadCheckout;
+// window.onload = loadCheckout;
+window.addEventListener("DOMContentLoaded", loadCheckout);

@@ -127,54 +127,121 @@ if (movieId) {
 
 //   main.appendChild(movieEl);
 // }
+
+//FUNKER
+// function displayMovieDetails(movie) {
+//   const main = document.getElementById("main_movie");
+//   const { id, title, image, rating, description, price } = movie; // Destructure the movie object
+//   const loadingIndicator = document.getElementById("loading_movie");
+
+//   // Show loading indicator
+//   loadingIndicator.style.display = "block";
+
+//   const movieEl = document.createElement("div");
+//   movieEl.classList.add("specific_movie");
+//   movieEl.innerHTML = `
+//       <img class="movie-img" src="${image.url}" alt="${title}" />
+//       <div class="movie-txt">
+//           <div class="spes-movie-info">
+//               <h3>${title}</h3>
+//               <span class="${getColor(rating)}">${rating}</span>
+//           </div>
+//           <div class="overview-movie">
+//               <h3>Description</h3>
+//               ${description}
+//               <h4 class="price">Price</h4>
+//               ${price}kr
+//           </div>
+//           <div class="buy-now-div">
+//               <a href="#" class="add-to-cart"
+//                  data-id="${id}"
+//                  data-title="${title}"
+//                  data-price="${price}"
+//                  data-image="${
+//                    image.url
+//                  }">Add to cart!</a> <!-- Set the data-image attribute here -->
+//           </div>
+//       </div>
+//   `;
+
+//   const addToCartButton = movieEl.querySelector(".add-to-cart");
+//   addToCartButton.addEventListener("click", (e) => {
+//     e.preventDefault();
+//     e.stopPropagation();
+
+//     const productName = e.target.getAttribute("data-title");
+//     const productPrice = parseFloat(e.target.getAttribute("data-price"));
+//     const productImage = e.target.getAttribute("data-image"); // This retrieves the image URL
+
+//     console.log("Product Name:", productName);
+//     console.log("Product Price:", productPrice);
+//     console.log("Product Image:", productImage); // This should now log the correct image URL
+
+//     addToCart(productName, productPrice, productImage);
+//   });
+
+//   main.appendChild(movieEl);
+// }
+
 function displayMovieDetails(movie) {
   const main = document.getElementById("main_movie");
-  const { id, title, image, rating, description, price } = movie; // Destructure the movie object
+  const loadingIndicator = document.getElementById("loading_movie");
 
-  const movieEl = document.createElement("div");
-  movieEl.classList.add("specific_movie");
-  movieEl.innerHTML = `
-      <img class="movie-img" src="${image.url}" alt="${title}" />
-      <div class="movie-txt">
-          <div class="spes-movie-info">
-              <h3>${title}</h3>
-              <span class="${getColor(rating)}">${rating}</span>
-          </div>
-          <div class="overview-movie">
-              <h3>Description</h3>
-              ${description}
-              <h4 class="price">Price</h4>
-              ${price}kr
-          </div>
-          <div class="buy-now-div">
-              <a href="#" class="add-to-cart" 
-                 data-id="${id}" 
-                 data-title="${title}" 
-                 data-price="${price}" 
-                 data-image="${
-                   image.url
-                 }">Add to cart!</a> <!-- Set the data-image attribute here -->
-          </div>
-      </div>
-  `;
+  // Show loading indicator
+  loadingIndicator.style.display = "block";
 
-  const addToCartButton = movieEl.querySelector(".add-to-cart");
-  addToCartButton.addEventListener("click", (e) => {
-    e.preventDefault();
-    e.stopPropagation();
+  // Simulate fetching movie details (if needed)
+  setTimeout(() => {
+    // Simulating a fetch delay
+    const { id, title, image, rating, description, price } = movie; // Destructure the movie object
 
-    const productName = e.target.getAttribute("data-title");
-    const productPrice = parseFloat(e.target.getAttribute("data-price"));
-    const productImage = e.target.getAttribute("data-image"); // This retrieves the image URL
+    const movieEl = document.createElement("div");
+    movieEl.classList.add("specific_movie");
+    movieEl.innerHTML = `
+        <img class="movie-img" src="${image.url}" alt="${title}" />
+        <div class="movie-txt">
+            <div class="spes-movie-info">
+                <h3>${title}</h3>
+                <span class="${getColor(rating)}">${rating}</span>
+            </div>
+            <div class="overview-movie">
+                <h3>Description</h3>
+                ${description}
+                <h4 class="price">Price</h4>
+                ${price}kr
+            </div>
+            <div class="buy-now-div">
+                <a href="#" class="add-to-cart" 
+                   data-id="${id}" 
+                   data-title="${title}" 
+                   data-price="${price}" 
+                   data-image="${image.url}">Add to cart!</a>
+            </div>
+        </div>
+    `;
 
-    console.log("Product Name:", productName);
-    console.log("Product Price:", productPrice);
-    console.log("Product Image:", productImage); // This should now log the correct image URL
+    const addToCartButton = movieEl.querySelector(".add-to-cart");
+    addToCartButton.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
 
-    addToCart(productName, productPrice, productImage);
-  });
+      const productName = e.target.getAttribute("data-title");
+      const productPrice = parseFloat(e.target.getAttribute("data-price"));
+      const productImage = e.target.getAttribute("data-image");
 
-  main.appendChild(movieEl);
+      // console.log("Product Name:", productName);
+      // console.log("Product Price:", productPrice);
+      // console.log("Product Image:", productImage);
+
+      addToCart(productName, productPrice, productImage);
+    });
+
+    main.innerHTML = ""; // Clear previous content
+    main.appendChild(movieEl);
+
+    // Hide loading indicator
+    loadingIndicator.style.display = "none";
+  }, 1000); // Simulating a 1 second delay for fetching
 }
 
 function getColor(vote) {

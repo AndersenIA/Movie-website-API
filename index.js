@@ -16,12 +16,20 @@ let allMovies = []; // Store all movies for filtering
 getMovies(BASE_URL);
 
 function getMovies(url) {
+  // Show loading indicator
+  const loadingIndicator = document.getElementById("loading");
+  loadingIndicator.style.display = "block";
+
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
-      console.log(data.data);
+      // console.log(data.data);
       allMovies = data.data;
       showMovies(data.data);
+    })
+    .finally(() => {
+      // Hide loading indicator
+      loadingIndicator.style.display = "none";
     });
 }
 
@@ -55,7 +63,7 @@ function showMovies(data) {
     movieEl.addEventListener("click", () => {
       // Redirect to the movie details page
       window.location.href = `movie.html?id=${id}`; // Change 'movie.html' to your actual movie detail page
-      console.log(id);
+      // console.log(id);
     });
 
     main.appendChild(movieEl);
@@ -63,7 +71,7 @@ function showMovies(data) {
 }
 
 function filterMovies(genre) {
-  console.log("Filter function called");
+  // console.log("Filter function called");
   const selectedGenre = filter.value; // Get the selected genre from the dropdown
   let filteredMovies;
 

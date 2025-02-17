@@ -198,4 +198,5 @@ function loadCart() {
 console.log(cart);
 
 // Call loadCart on page load
-window.onload = loadCart;
+// window.onload = loadCart;
+window.addEventListener("DOMContentLoaded", loadCart);
