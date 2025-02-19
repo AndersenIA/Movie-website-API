@@ -20,7 +20,8 @@
       </form>
       <a href="#" class="cart" id="cartIcon"
         ><ion-icon name="cart-outline"></ion-icon
-      ></a>
+        ><span id="cartCount">0</span></a
+      >
     </header>
 
     <div class="cart-popup" id="cartPopup">
@@ -29,7 +30,9 @@
         <!-- Cart items will be populated here -->
       </div>
       <button class="cart_btn" id="closeCart">Close</button>
-      <a href="checkout.html"><button class="cart_btn">Checkout</button></a>
+      <a href="checkout.html"
+        ><button class="cart_btn" id="checkoutButton">Checkout</button></a
+      >
     </div>
 
     <main class="checkout-main">

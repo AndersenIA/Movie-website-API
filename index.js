@@ -71,7 +71,6 @@ function showMovies(data) {
 }
 
 function filterMovies(genre) {
-  // console.log("Filter function called");
   const selectedGenre = filter.value; // Get the selected genre from the dropdown
   let filteredMovies;
 

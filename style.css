@@ -171,16 +171,23 @@ header {
   font-size: 1.5rem;
 }
 
+.add-to-cart:hover {
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.add-to-cart:active {
+  color: var(--primary-color);
+  background-color: var(--menu-color);
+  border: 2px solid var(--menu-color);
+}
+
 .buy-now:hover {
   color: var(--secondary-color);
   background-color: var(--primary-color);
   text-decoration: none;
   border: 2px solid var(--primary-color);
-}
-
-.cart {
-  color: var(--menu-color);
-  font-size: 2rem;
 }
 
 .price {
@@ -192,6 +199,13 @@ header {
 /*************************          CART           *********************************/
 /***********************************************************************************/
 /***********************************************************************************/
+
+.cart {
+  color: var(--menu-color);
+  font-size: 2rem;
+  display: flex;
+  text-decoration: none;
+}
 
 .cart-popup {
   display: none; /* Hidden by default */
@@ -244,6 +258,10 @@ header {
   color: var(--menu-color);
   padding-left: 1rem;
   cursor: pointer;
+}
+
+#cartCount {
+  font-size: 1rem;
 }
 
 /***********************************************************************************/
