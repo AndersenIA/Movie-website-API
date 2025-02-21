@@ -205,6 +205,15 @@ header {
   font-size: 2rem;
   display: flex;
   text-decoration: none;
+  border: 1px solid var(--menu-color);
+  border-radius: 50%;
+  padding: 0.5rem 0.6rem;
+}
+
+.cart:hover {
+  color: var(--menu-color);
+  background-color: var(--primary-color);
+  border: 1px solid var(--primary-color);
 }
 
 .cart-popup {
@@ -256,12 +265,22 @@ header {
   background-color: transparent;
   border: none;
   color: var(--menu-color);
-  padding-left: 1rem;
+  margin-left: 1rem;
   cursor: pointer;
 }
 
 #cartCount {
-  font-size: 1rem;
+  position: absolute;
+  font-size: 0.8rem;
+  right: 20px;
+  top: 10px;
+  border: solid 1px var(--menu-color);
+  border-radius: 50%;
+  padding: 0px 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--secondary-color);
 }
 
 /***********************************************************************************/
@@ -277,27 +296,29 @@ header {
   padding-top: 1rem;
 }
 .checkout-header {
-  color: white;
+  color: var(--menu-color);
 }
 
 .checkout-img {
   height: 15rem;
+  border-radius: 15px;
+  box-shadow: 0 0 5px 0px var(--menu-color);
 }
 
 .checkout-product-name {
-  color: white;
+  color: var(--menu-color);
 }
 
 .checkout-quantity {
-  color: white;
+  color: var(--menu-color);
 }
 
 .checkout-total-price {
-  color: white;
+  color: var(--menu-color);
 }
 
 #totalPrice {
-  color: white;
+  color: var(--menu-color);
 }
 
 .checkout-btn {
@@ -387,5 +408,4 @@ header {
 
 .dots {
   display: inline-block;
-  animation: dots 1s steps(5, end) infinite;
 }

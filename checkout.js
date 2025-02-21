@@ -1,4 +1,4 @@
-// Function to load cart data from local storage and display it
+// // Function to load cart data from local storage and display it
 function loadCheckout() {
   const savedCart = localStorage.getItem("cart");
   const checkoutList = document.getElementById("checkoutContent");
@@ -56,3 +56,5 @@ function clearCart() {
   updateCartCount(); // Update the cart count
   saveCart(); // Save the empty cart to local storage
 }
+
+////////////////////////////////////////////////////////////////////

@@ -66,10 +66,6 @@ function displayMovieDetails(movie) {
       const productPrice = parseFloat(e.target.getAttribute("data-price"));
       const productImage = e.target.getAttribute("data-image");
 
-      // console.log("Product Name:", productName);
-      // console.log("Product Price:", productPrice);
-      // console.log("Product Image:", productImage);
-
       addToCart(productName, productPrice, productImage);
     });
 
