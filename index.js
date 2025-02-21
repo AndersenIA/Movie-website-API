@@ -3,33 +3,37 @@
 
 const API_KEY = "api_key=5a452143-fc8c-4a17-a666-6a88c639e7be";
 const BASE_URL = "https://v2.api.noroff.dev/square-eyes";
-const API_URL = BASE_URL + API_KEY;
+const API_URL = BASE_URL + "?" + API_KEY; // Ensure the API key is appended correctly
 
 const main = document.getElementById("main");
 const form = document.getElementById("form");
 const search = document.getElementById("search");
-
 const filter = document.getElementById("filter"); // Reference to the filter dropdown
 
 let allMovies = []; // Store all movies for filtering
 
-getMovies(BASE_URL);
+getMovies(API_URL); // Call the function to get movies
 
-function getMovies(url) {
+async function getMovies(url) {
   // Show loading indicator
   const loadingIndicator = document.getElementById("loading");
   loadingIndicator.style.display = "block";
 
-  fetch(url)
-    .then((res) => res.json())
-    .then((data) => {
-      allMovies = data.data;
-      showMovies(data.data);
-    })
-    .finally(() => {
-      // Hide loading indicator
-      loadingIndicator.style.display = "none";
-    });
+  try {
+    const res = await fetch(url); // Await the fetch call
+    if (!res.ok) {
+      throw new Error("Network response was not ok");
+    }
+    const data = await res.json(); // Await the JSON conversion
+    allMovies = data.data; // Store all movies
+    showMovies(data.data); // Show movies
+  } catch (error) {
+    console.error("Error fetching movies:", error);
+    // Optionally, display an error message to the user
+  } finally {
+    // Hide loading indicator
+    loadingIndicator.style.display = "none";
+  }
 }
 
 function showMovies(data) {
@@ -52,11 +56,9 @@ function showMovies(data) {
         </div>
 
         <div class="overview">
-          <h3>overview</h3>
+          <h3>Overview</h3>
           ${description}
         </div>
-
-
     `;
 
     movieEl.addEventListener("click", () => {

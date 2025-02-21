@@ -2,22 +2,27 @@ const params = new URLSearchParams(window.location.search);
 const movieId = params.get("id");
 const BASE_URL = "https://v2.api.noroff.dev/square-eyes";
 
-if (movieId) {
-  fetch(`${BASE_URL}/${movieId}`)
-    .then((res) => {
+// Call the function to fetch movie details
+fetchMovieDetails(movieId);
+
+async function fetchMovieDetails(movieId) {
+  if (movieId) {
+    try {
+      const res = await fetch(`${BASE_URL}/${movieId}`);
       if (!res.ok) {
         throw new Error("Network response was not ok");
       }
-      return res.json();
-    })
-    .then((data) => {
+      const data = await res.json();
       const movie = data.data;
       displayMovieDetails(movie);
-    })
-    .catch((error) => {
+    } catch (error) {
       console.error("Error fetching movie details:", error);
-      //display an error message to the user
-    });
+      // Display an error message to the user
+      displayErrorMessage(
+        "Failed to load movie details. Please try again later."
+      );
+    }
+  }
 }
 
 function displayMovieDetails(movie) {
@@ -74,6 +79,11 @@ function displayMovieDetails(movie) {
     // Hide loading indicator
     loadingIndicator.style.display = "none";
   }, 1000); // Simulating a 1 second delay for fetching
+}
+
+function displayErrorMessage(message) {
+  const main = document.getElementById("main_movie");
+  main.innerHTML = `<p class="error">${message}</p>`;
 }
 
 function getColor(vote) {
