@@ -3,7 +3,7 @@ const movieId = params.get("id");
 const BASE_URL = "https://v2.api.noroff.dev/square-eyes";
 
 if (movieId) {
-  fetch(`${BASE_URL}/${movieId}`) // Adjust this based on your API structure
+  fetch(`${BASE_URL}/${movieId}`)
     .then((res) => {
       if (!res.ok) {
         throw new Error("Network response was not ok");
@@ -11,12 +11,12 @@ if (movieId) {
       return res.json();
     })
     .then((data) => {
-      const movie = data.data; // Assuming the API returns the movie object directly
+      const movie = data.data;
       displayMovieDetails(movie);
     })
     .catch((error) => {
       console.error("Error fetching movie details:", error);
-      // Optionally display an error message to the user
+      //display an error message to the user
     });
 }
 
@@ -27,7 +27,6 @@ function displayMovieDetails(movie) {
   // Show loading indicator
   loadingIndicator.style.display = "block";
 
-  // Simulate fetching movie details (if needed)
   setTimeout(() => {
     // Simulating a fetch delay
     const { id, title, image, rating, description, price } = movie; // Destructure the movie object

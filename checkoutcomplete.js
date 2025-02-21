@@ -1,5 +1,3 @@
-// checkoutcomplete.js
-
 // Function to clear the cart
 function clearCart() {
   const cart = {}; // Create a new empty cart

@@ -23,7 +23,6 @@ function getMovies(url) {
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
-      // console.log(data.data);
       allMovies = data.data;
       showMovies(data.data);
     })
@@ -63,7 +62,6 @@ function showMovies(data) {
     movieEl.addEventListener("click", () => {
       // Redirect to the movie details page
       window.location.href = `movie.html?id=${id}`; // Change 'movie.html' to your actual movie detail page
-      // console.log(id);
     });
 
     main.appendChild(movieEl);
