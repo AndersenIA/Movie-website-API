@@ -3,7 +3,7 @@
 
 const API_KEY = "api_key=5a452143-fc8c-4a17-a666-6a88c639e7be";
 const BASE_URL = "https://v2.api.noroff.dev/square-eyes";
-const API_URL = BASE_URL + "?" + API_KEY; // Ensure the API key is appended correctly
+const API_URL = BASE_URL + "?" + API_KEY;
 
 const main = document.getElementById("main");
 const form = document.getElementById("form");
@@ -63,7 +63,7 @@ function showMovies(data) {
 
     movieEl.addEventListener("click", () => {
       // Redirect to the movie details page
-      window.location.href = `movie.html?id=${id}`; // Change 'movie.html' to your actual movie detail page
+      window.location.href = `movie.html?id=${id}`;
     });
 
     main.appendChild(movieEl);
